@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js - sample</title>
+    <style>[v-cloak] { display:none; }</style>
+</head>
+<body>
+    <div id="app" v-cloak>
+       <!-- <h1>Cwiczenie 1</h1>
+        <p>Hello world</p>-->
+        <h1>{{ h1 }}</h1>
+        <p>{{ p }}</p>
+        <br/>
+        <p>długość nagłówka {{ getHeadLength()}}</p>
+        <p>długość akapitu {{ getTextLength( p ) }}</p>
+        <br/>
+        <p>długość nagłówka {{ headerLen}}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                h1:"Ćwiczenie ",
+                p:"Hello world",
+                headerLen:""
+            },
+            methods:{
+
+                getTextLength: function(val){
+                    return val.length;
+                },
+                getHeadLength: function(){
+                    return this.h1.length;
+                },
+                getHeadLength2: function(){
+                    this.headerLen = this.h1.length;
+                }
+            }
+        });
+        vm.getHeadLength2();
+    </script>
+</body>
+</html>
